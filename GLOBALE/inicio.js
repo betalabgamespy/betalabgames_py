@@ -14,7 +14,7 @@ class CargadorInicio {
 
     async cargarPS2() {
         try {
-            const response = await fetch('/JUEGOS/juegosps2.json');
+            const response = await fetch('JUEGOS/juegosps2.json');
             const data = await response.json();
             
             // PS2 usa "jeugosps2" (con typo)
@@ -31,7 +31,7 @@ class CargadorInicio {
 
     async cargarPS3() {
         try {
-            const response = await fetch('/JUEGOS/juegosps3.json');
+            const response = await fetch('JUEGOS/juegosps3.json');
             const data = await response.json();
             
             // PS3 usa "jeugosps3" (con typo)
@@ -269,3 +269,4 @@ function cargarJuegosInicio() {
     window.cargadorInicio = new CargadorInicio();
 
 }
+
