@@ -49,7 +49,7 @@ class CargadorInicio {
     async cargarPS4() {
         try {
             console.log('🔄 Cargando PS4 para inicio...');
-            const response = await fetch('/JUEGOS/juegosps4.json');
+            const response = await fetch('JUEGOS/juegosps4.json');
             
             if (!response.ok) {
                 throw new Error(`Error HTTP: ${response.status}`);
@@ -84,9 +84,9 @@ class CargadorInicio {
             console.log('🔄 Cargando ofertas...');
             
             const [ps2Response, ps3Response, ps4Response] = await Promise.all([
-                fetch('/JUEGOS/juegosps2.json'),
-                fetch('/JUEGOS/juegosps3.json'),
-                fetch('/JUEGOS/juegosps4.json')
+                fetch('JUEGOS/juegosps2.json'),
+                fetch('JUEGOS/juegosps3.json'),
+                fetch('JUEGOS/juegosps4.json')
             ]);
             
             const ps2 = await ps2Response.json();
@@ -239,15 +239,15 @@ function redirigirDesdeInicio(tipoConsola, nombreJuego, precio) {
     
     switch(tipoConsola) {
         case 'ps2':
-            formularioDestino = '/PEDIDOS/pedidosps2.html';
+            formularioDestino = 'PEDIDOS/pedidosps2.html';
             break;
         case 'ps3':
-            formularioDestino = '/PEDIDOS/pedidosps3.html';
+            formularioDestino = 'PEDIDOS/pedidosps3.html';
             break;
         case 'ps4':
         case 'ps5':
         case 'oferta':
-            formularioDestino = '/PEDIDOS/pedidosps4.html';
+            formularioDestino = 'PEDIDOS/pedidosps4.html';
             break;
     }
     
@@ -267,4 +267,5 @@ function redirigirDesdeInicio(tipoConsola, nombreJuego, precio) {
 function cargarJuegosInicio() {
     console.log('🚀 Iniciando carga de juegos para inicio...');
     window.cargadorInicio = new CargadorInicio();
+
 }
